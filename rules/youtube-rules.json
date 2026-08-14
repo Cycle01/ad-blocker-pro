@@ -1,0 +1,95 @@
+[
+  {
+    "id": 2001,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||googleads.g.doubleclick.net^",
+      "initiatorDomains": ["youtube.com","www.youtube.com"],
+      "resourceTypes": ["xmlhttprequest","sub_frame","script","image"]
+    }
+  },
+  {
+    "id": 2002,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||static.doubleclick.net^",
+      "initiatorDomains": ["youtube.com","www.youtube.com"],
+      "resourceTypes": ["script","xmlhttprequest","image"]
+    }
+  },
+  {
+    "id": 2003,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||pagead2.googlesyndication.com^",
+      "initiatorDomains": ["youtube.com","www.youtube.com"],
+      "resourceTypes": ["script","xmlhttprequest","image"]
+    }
+  },
+  {
+    "id": 2004,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||ad.youtube.com^",
+      "resourceTypes": ["script","xmlhttprequest","image","sub_frame"]
+    }
+  },
+  {
+    "id": 2005,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/pagead^",
+      "resourceTypes": ["script","xmlhttprequest","image"]
+    }
+  },
+  {
+    "id": 2006,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/api/stats/ads^",
+      "resourceTypes": ["xmlhttprequest","image"]
+    }
+  },
+  {
+    "id": 2007,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/get_video_info?*adformat^",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  },
+  {
+    "id": 2008,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/api/stats/atr^",
+      "resourceTypes": ["xmlhttprequest","image","ping"]
+    }
+  },
+  {
+    "id": 2009,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/api/stats/qoe*ad^",
+      "resourceTypes": ["xmlhttprequest","image","ping"]
+    }
+  },
+  {
+    "id": 2010,
+    "priority": 2,
+    "action": { "type": "block" },
+    "condition": {
+      "urlFilter": "||youtube.com/youtubei/*/ad_break^",
+      "resourceTypes": ["xmlhttprequest"]
+    }
+  }
+]

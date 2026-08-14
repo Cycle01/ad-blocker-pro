@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdBlock Pro — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ── Sidebar ────────────────────────────────────────────────── -->
+    <nav class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"
+                  fill="url(#sg)"/>
+            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="sg" x1="3" y1="2" x2="21" y2="23" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#8b5cf6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div>
+          <div class="sidebar-title">AdBlock <strong>Pro</strong></div>
+          <div class="sidebar-sub" id="version-label">v1.0.0</div>
+        </div>
+      </div>
+
+      <ul class="nav-list">
+        <li><a class="nav-item active" href="#general"   data-tab="general">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          General
+        </a></li>
+        <li><a class="nav-item" href="#filtering" data-tab="filtering">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          Filtering
+        </a></li>
+        <li><a class="nav-item" href="#whitelist" data-tab="whitelist">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"/></svg>
+          Whitelist
+        </a></li>
+        <li><a class="nav-item" href="#rules" data-tab="rules">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Custom Rules
+        </a></li>
+        <li><a class="nav-item" href="#stats" data-tab="stats">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          Statistics
+        </a></li>
+        <li><a class="nav-item" href="#advanced" data-tab="advanced">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Advanced
+        </a></li>
+        <li><a class="nav-item" href="#about" data-tab="about">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          About
+        </a></li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="status-badge" id="status-badge">
+          <span class="status-dot"></span>
+          <span id="status-text">Active</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ── Main Content ───────────────────────────────────────────── -->
+    <main class="main-content">
+
+      <!-- ── Toast ─────────────────────────────────────────── -->
+      <div class="toast" id="toast"></div>
+
+      <!-- ════════ GENERAL ════════ -->
+      <section class="tab-section active" id="tab-general">
+        <div class="page-header">
+          <h1>General Settings</h1>
+          <p>Core blocking behaviour and UI preferences.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Protection</div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Enable AdBlock Pro</div>
+              <div class="setting-desc">Master toggle — disables all blocking when off</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-enabled" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Cosmetic Filtering</div>
+              <div class="setting-desc">Hide empty ad containers and sponsored elements via CSS</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-cosmetic" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Block Popups &amp; New Tabs</div>
+              <div class="setting-desc">Prevent automatic window.open() calls from ad scripts</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-popups" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Redirect Protection</div>
+              <div class="setting-desc">Block forced redirects to ad landing pages</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-redirect" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">YouTube</div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">YouTube Ad Blocking</div>
+              <div class="setting-desc">Auto-skip pre-roll and mid-roll ads, remove ad overlays</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-youtube" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Interface</div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Show Badge Counter</div>
+              <div class="setting-desc">Display block count on the extension icon</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-badge" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ FILTERING ════════ -->
+      <section class="tab-section" id="tab-filtering">
+        <div class="page-header">
+          <h1>Filter Settings</h1>
+          <p>Choose blocking mode and enable specific filter categories.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Blocking Mode</div>
+          <div class="mode-cards">
+            <label class="mode-card" id="mcard-smart">
+              <input type="radio" name="mode" value="smart">
+              <div class="mode-card-inner">
+                <div class="mode-icon">🧠</div>
+                <div class="mode-name">Smart Mode</div>
+                <div class="mode-desc">Balanced — blocks ads while preserving site functionality</div>
+              </div>
+            </label>
+            <label class="mode-card" id="mcard-normal">
+              <input type="radio" name="mode" value="normal">
+              <div class="mode-card-inner">
+                <div class="mode-icon">🛡️</div>
+                <div class="mode-name">Standard</div>
+                <div class="mode-desc">Default — EasyList + tracker blocking</div>
+              </div>
+            </label>
+            <label class="mode-card" id="mcard-aggressive">
+              <input type="radio" name="mode" value="aggressive">
+              <div class="mode-card-inner">
+                <div class="mode-icon">⚡</div>
+                <div class="mode-name">Aggressive</div>
+                <div class="mode-desc">Maximum — blocks 3rd-party scripts, may break some sites</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Filter Categories</div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Block Trackers &amp; Analytics</div>
+              <div class="setting-desc">Google Analytics, Hotjar, Mixpanel, Facebook Pixel, etc.</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-trackers" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Script Blocking (Advanced)</div>
+              <div class="setting-desc">Block inline tracking scripts dynamically injected by ads</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-scripts"><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Anti-Fingerprinting</div>
+              <div class="setting-desc">Randomise canvas, audio, and WebGL fingerprints</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-fingerprint" checked><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label">Cookie Blocking</div>
+              <div class="setting-desc">Block third-party tracking cookies (may break logins)</div>
+            </div>
+            <label class="toggle"><input type="checkbox" id="s-cookies"><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ WHITELIST ════════ -->
+      <section class="tab-section" id="tab-whitelist">
+        <div class="page-header">
+          <h1>Whitelist</h1>
+          <p>Sites where AdBlock Pro is fully disabled.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Add Site</div>
+          <div class="input-row">
+            <input type="text" class="text-input" id="whitelist-input"
+                   placeholder="example.com" autocomplete="off" spellcheck="false">
+            <button class="btn btn-primary" id="btn-add-whitelist">Add</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Whitelisted Sites</div>
+          <div class="list-container" id="whitelist-list">
+            <div class="empty-list">No sites whitelisted</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ CUSTOM RULES ════════ -->
+      <section class="tab-section" id="tab-rules">
+        <div class="page-header">
+          <h1>Custom Rules</h1>
+          <p>Write your own block/allow rules using EasyList-style syntax.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Add Rule</div>
+          <div class="rule-help">
+            <code>||example.com^</code> — block a domain<br>
+            <code>@@||example.com^</code> — allow / whitelist a domain<br>
+            <code>/regex/</code> — block by regex pattern
+          </div>
+          <div class="input-row" style="margin-top:12px">
+            <input type="text" class="text-input" id="rule-input"
+                   placeholder="||ads.example.com^" autocomplete="off" spellcheck="false">
+            <button class="btn btn-primary" id="btn-add-rule">Add</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Active Rules</div>
+          <div class="list-container" id="rules-list">
+            <div class="empty-list">No custom rules defined</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ STATISTICS ════════ -->
+      <section class="tab-section" id="tab-stats">
+        <div class="page-header">
+          <h1>Statistics</h1>
+          <p>Lifetime blocking summary.</p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-big-card">
+            <div class="stat-big-num" id="gs-ads">0</div>
+            <div class="stat-big-label">Ads Blocked</div>
+          </div>
+          <div class="stat-big-card">
+            <div class="stat-big-num" id="gs-trackers">0</div>
+            <div class="stat-big-label">Trackers Stopped</div>
+          </div>
+          <div class="stat-big-card">
+            <div class="stat-big-num" id="gs-total">0</div>
+            <div class="stat-big-label">Total Blocked</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-title">Actions</div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px">
+            <button class="btn btn-danger" id="btn-reset-stats">Reset All Stats</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ ADVANCED ════════ -->
+      <section class="tab-section" id="tab-advanced">
+        <div class="page-header">
+          <h1>Advanced</h1>
+          <p>Import / export, developer options, and danger zone.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Export / Import Settings</div>
+          <div class="btn-row">
+            <button class="btn btn-secondary" id="btn-export">Export Settings</button>
+            <button class="btn btn-secondary" id="btn-import">Import Settings</button>
+            <input type="file" id="import-file" accept=".json" style="display:none">
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Danger Zone</div>
+          <div class="setting-row">
+            <div class="setting-info">
+              <div class="setting-label" style="color:var(--red)">Reset All Settings</div>
+              <div class="setting-desc">Restore defaults and clear all custom rules, whitelist, and stats</div>
+            </div>
+            <button class="btn btn-danger" id="btn-reset-all">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ ABOUT ════════ -->
+      <section class="tab-section" id="tab-about">
+        <div class="page-header">
+          <h1>About</h1>
+        </div>
+
+        <div class="card about-card">
+          <div class="about-logo">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z"
+                    fill="url(#ag)"/>
+              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="ag" x1="3" y1="2" x2="21" y2="23" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#6366f1"/>
+                  <stop offset="100%" stop-color="#8b5cf6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="about-name">AdBlock <strong>Pro</strong></div>
+          <div class="about-version" id="about-version">v1.0.0</div>
+          <div class="about-desc">
+            A high-performance, open-source ad blocker built on Manifest V3.<br>
+            Compatible with Chrome, Edge, and Firefox.
+          </div>
+
+          <div class="about-features">
+            <div class="feat">✓ Network-level ad blocking via declarativeNetRequest</div>
+            <div class="feat">✓ YouTube pre-roll &amp; mid-roll ad removal</div>
+            <div class="feat">✓ Cosmetic filtering with MutationObserver</div>
+            <div class="feat">✓ Anti-fingerprinting (canvas, audio, WebGL)</div>
+            <div class="feat">✓ Popup &amp; redirect protection</div>
+            <div class="feat">✓ Custom EasyList-style user rules</div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

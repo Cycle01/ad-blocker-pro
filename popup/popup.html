@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdBlock Pro</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app" id="app">
+
+    <!-- Subtle noise texture overlay -->
+    <div class="noise"></div>
+
+    <!-- ── Header ──────────────────────────────────────────────── -->
+    <header class="header">
+      <div class="wordmark">
+        <span class="wordmark-ab">AB</span>
+        <span class="wordmark-sep">·</span>
+        <span class="wordmark-pro">PRO</span>
+      </div>
+      <button class="gear-btn" id="btn-settings" title="Settings">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83
+                   2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1
+                   1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65
+                   1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65
+                   1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1
+                   0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82
+                   l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9
+                   4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65
+                   1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2
+                   0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65
+                   1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0
+                   0 0-1.51 1z"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- ── Shield Hero ──────────────────────────────────────────── -->
+    <section class="hero">
+
+      <!-- Scan line that sweeps over shield when active -->
+      <div class="scan-line" id="scan-line"></div>
+
+      <!-- Corner brackets (decorative) -->
+      <div class="bracket tl"></div>
+      <div class="bracket tr"></div>
+      <div class="bracket bl"></div>
+      <div class="bracket br"></div>
+
+      <!-- The shield -->
+      <button class="shield-btn" id="shield-btn">
+        <svg class="shield-svg" viewBox="0 0 90 106" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g-on" x1="20%" y1="0%" x2="80%" y2="100%">
+              <stop offset="0%"   stop-color="#00ffa3"/>
+              <stop offset="100%" stop-color="#00c97a"/>
+            </linearGradient>
+            <linearGradient id="g-off" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%"   stop-color="#1c2030"/>
+              <stop offset="100%" stop-color="#111420"/>
+            </linearGradient>
+            <filter id="glow-on">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Shield shape -->
+          <path class="s-body"
+                d="M45 2 L88 19 L88 52 C88 78 68 97 45 104 C22 97 2 78 2 52 L2 19 Z"/>
+          <!-- Inner bevel -->
+          <path class="s-bevel"
+                d="M45 10 L81 25 L81 52 C81 73 63 91 45 97 C27 91 9 73 9 52 L9 25 Z"/>
+          <!-- Checkmark -->
+          <polyline class="s-check" id="s-check"
+                    points="27,54 40,67 65,40"
+                    stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="6"/>
+          <!-- X mark -->
+          <g class="s-x" id="s-x">
+            <line x1="32" y1="40" x2="58" y2="66" stroke-linecap="round" stroke-width="6"/>
+            <line x1="58" y1="40" x2="32" y2="66" stroke-linecap="round" stroke-width="6"/>
+          </g>
+        </svg>
+      </button>
+
+      <!-- Status pill -->
+      <div class="status-pill" id="status-pill">
+        <span class="status-pulse" id="status-pulse"></span>
+        <span class="status-text" id="status-text">PROTECTED</span>
+      </div>
+
+      <!-- Domain tag -->
+      <div class="domain-tag">
+        <img id="fav" src="" alt="" style="display:none;width:12px;height:12px;border-radius:2px;flex-shrink:0">
+        <span id="site-hostname">—</span>
+      </div>
+
+    </section>
+
+    <!-- ── Stats Bar ────────────────────────────────────────────── -->
+    <div class="stats-bar">
+      <div class="stat">
+        <span class="stat-val" id="num-ads">0</span>
+        <span class="stat-key">ADS</span>
+      </div>
+      <div class="stat-line"></div>
+      <div class="stat">
+        <span class="stat-val" id="num-trackers">0</span>
+        <span class="stat-key">TRACKERS</span>
+      </div>
+      <div class="stat-line"></div>
+      <div class="stat">
+        <span class="stat-val" id="num-yt">0</span>
+        <span class="stat-key">YOUTUBE</span>
+      </div>
+    </div>
+
+    <!-- ── Mode Row ─────────────────────────────────────────────── -->
+    <div class="mode-row">
+      <button class="mode-chip" id="mode-smart">SMART</button>
+      <button class="mode-chip" id="mode-aggressive">MAXIMUM</button>
+      <button class="mode-chip" id="mode-script">NO SCRIPTS</button>
+    </div>
+
+    <!-- ── Feed ────────────────────────────────────────────────── -->
+    <div class="feed" id="feed">
+      <div class="feed-empty">No activity on this page</div>
+    </div>
+
+    <!-- ── Footer ──────────────────────────────────────────────── -->
+    <footer class="foot">
+      <div class="foot-left">
+        <span class="foot-label">TOTAL</span>
+        <span class="foot-val" id="global-total">0</span>
+      </div>
+      <button class="log-btn" id="btn-log">LOG</button>
+    </footer>
+
+    <!-- ── Log Drawer ───────────────────────────────────────────── -->
+    <div class="drawer" id="drawer">
+      <div class="drawer-head">
+        <span class="drawer-title">BLOCK LOG</span>
+        <div style="display:flex;gap:6px;align-items:center">
+          <button class="ghost-btn" id="btn-clear-log">CLEAR</button>
+          <button class="close-btn" id="btn-close-log">✕</button>
+        </div>
+      </div>
+      <div class="drawer-body" id="log-list">
+        <div class="feed-empty">No entries</div>
+      </div>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

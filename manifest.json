@@ -1,0 +1,100 @@
+{
+  "manifest_version": 3,
+  "name": "AdBlock Pro — Advanced Ad & Tracker Blocker",
+  "version": "1.0.0",
+  "description": "High-performance ad blocker with AI-assisted detection, YouTube ad blocking, cosmetic filtering, and privacy protection.",
+  "author": "AdBlock Pro",
+
+  "icons": {
+    "16":  "icons/icon16.png",
+    "32":  "icons/icon32.png",
+    "48":  "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16":  "icons/icon16.png",
+      "32":  "icons/icon32.png",
+      "48":  "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "AdBlock Pro"
+  },
+
+  "background": {
+    "service_worker": "background/service-worker.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content/content-script.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*", "*://youtube.com/*"],
+      "js": [
+        "content/youtube-blocker.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs",
+    "scripting",
+    "webNavigation",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "core_rules",
+        "enabled": true,
+        "path": "rules/core-rules.json"
+      },
+      {
+        "id": "tracker_rules",
+        "enabled": true,
+        "path": "rules/tracker-rules.json"
+      },
+      {
+        "id": "youtube_rules",
+        "enabled": true,
+        "path": "rules/youtube-rules.json"
+      }
+    ]
+  },
+
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none';"
+  }
+}
